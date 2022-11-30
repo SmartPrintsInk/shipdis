@@ -1,4 +1,4 @@
-module SmartPrintsInk
+module github.com/SmartPrintsInk/shipdis
 
 go 1.19
 
