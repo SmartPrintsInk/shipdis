@@ -27,7 +27,7 @@ type Address struct {
 	Street3     string `json:"street3,omitempty" bson:"street3,omitempty"`
 	City        string `json:"city,omitempty" bson:"city,omitempty"`
 	State       string `json:"state,omitempty" bson:"state,omitempty"`
-	PostalCode  string `json:"postalCode,omitempty" bson::"postalCode,omitempty"`
+	PostalCode  string `json:"postalCode,omitempty" bson:"postalCode,omitempty"`
 	Country     string `json:"country,omitempty" bson:"country,omitempty"`
 	Phone       string `json:"phone,omitempty" bson:"phone,omitempty"`
 	Residential bool   `json:"residential,omitempty" bson:"residential,omitempty"`
@@ -77,6 +77,9 @@ type ShipStationOrder struct {
 	Items           []ShipStationItem `json:"items,omitempty" bson:"items,omitempty"`
 	AmountPaid      float64           `json:"amountPaid,omitempty" bson:"amountPaid,omitempty"`
 	TaxAmount       float64           `json:"taxAmount,omitempty" bson:"taxAmount,omitempty"`
+	ShippingAmount  float64           `json:"shippingAmount,omitempty" bson:"shippingAmount,omitempty"`
+	OrderTotal      float64           `json:"orderTotal,omitempty" bson:"orderTotal,omitempty"`
+	CustomerNotes   string            `json:"cutomerNotes,omitempty" bson:"customerNotes,omitempty"`
 	InternalNotes   string            `json:"internalNotes,omitempty" bson:"internalNotes,omitempty"`
 	AdvancedOptions AdvancedOptions   `json:"advancedOptions,omitempty" bson:"advanceOptions,omitempty"`
 	TagIds          []int             `json:"tagIds,omitempty" bson:"tagsIds,omitempty"`
