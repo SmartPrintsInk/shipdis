@@ -79,7 +79,7 @@ func MasrAs(shipstationMarkedItem ShipStationMarkAsShipped) (response Shipstatio
 	responseBody, err := requestPayload.MakeHttpRequest()
 	message = fmt.Sprintf("at Marked as shipped for orderId %s\n", id)
 	check(err, message)
-	err = json.Unmarshal(responseBody, response)
+	err = json.Unmarshal(responseBody, &response)
 	fmt.Printf("Holding Reponse %+v\n", prettyfie.Pretty(response))
 	return
 }
@@ -108,7 +108,7 @@ func HoldDis(orderId int64, until string) (response ShipstationHoldResponse, err
 	}
 	responseBody, err := requestPayload.MakeHttpRequest()
 	check(err, "at Holding orderId "+id+"\n")
-	err = json.Unmarshal(responseBody, response)
+	err = json.Unmarshal(responseBody, &response)
 	fmt.Printf("Holding Reponse %+v\n", prettyfie.Pretty(response))
 	return
 }
@@ -137,6 +137,34 @@ func GetOrders(params url.Values) (orders []ShipStationOrder, err error) {
 		params.Set("page", fmt.Sprintf("%d", orderList.Page+1))
 		newOrders, _ := GetOrders(params)
 		orders = append(orders, newOrders...)
+	}
+	return
+}
+
+func GetShipments(params url.Values) (shipments []Shipment, err error) {
+	setup()
+	var list ShipmentList
+	reqPayload := RequestPayload{
+		URL:    ordersEndpoint,
+		Method: http.MethodGet,
+		Headers: http.Header{
+			"Host":          {"ssapi.shipstation.com"},
+			"Authorization": {authorization},
+			"Content-Type":  {"application/json"},
+			"Accept":        {"application/json"},
+		},
+		QueryParams: params,
+		Payload:     nil,
+	}
+	resp, err := reqPayload.MakeHttpRequest()
+	check(err, "Get ShipStation Order list")
+	err = json.Unmarshal(resp, &list)
+	log.Printf("ShipStation Response:\n%s\n", prettyfie.Pretty(list))
+	shipments = list.Shipments
+	if list.Page < list.Pages {
+		params.Set("page", fmt.Sprintf("%d", list.Page+1))
+		newShipments, _ := GetShipments(params)
+		shipments = append(shipments, newShipments...)
 	}
 	return
 }
