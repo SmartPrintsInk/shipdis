@@ -145,7 +145,7 @@ func GetShipments(params url.Values) (shipments []Shipment, err error) {
 	setup()
 	var list ShipmentList
 	reqPayload := RequestPayload{
-		URL:    ordersEndpoint,
+		URL:    shipmentEndpoint,
 		Method: http.MethodGet,
 		Headers: http.Header{
 			"Host":          {"ssapi.shipstation.com"},

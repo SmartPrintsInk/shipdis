@@ -122,35 +122,35 @@ type ShipmentList struct {
 }
 
 type Shipment struct {
-	ShipmentID          int              `json:"shipmentId" bson:"shipmentId,omitempty"`
-	OrderID             int              `json:"orderId" bson:"orderId,omitempty"`
-	OrderKey            string           `json:"orderKey"  bson:"orderKey,omitempty"`
-	UserID              string           `json:"userId"  bson:"userId,omitempty"`
-	OrderNumber         string           `json:"orderNumber" bson:"orderNumber,omitempty"`
-	CreateDate          string           `json:"createDate" bson:"createDate,omitempty"`
-	ShipDate            string           `json:"shipDate" bson:"shipDate,omitempty"`
-	ShipmentCost        float64          `json:"shipmentCost"  bson:"shipmentCost,omitempty"`
-	InsuranceCost       int              `json:"insuranceCost" bson:"insuranceCost,omitempty"`
-	TrackingNumber      string           `json:"trackingNumber" bson:"trackingNumber,omitempty"`
-	IsReturnLabel       bool             `json:"isReturnLabel" bson:"isReturnLabel,omitempty"`
-	BatchNumber         string           `json:"batchNumber" bson:"batchNumber,omitempty"`
-	CarrierCode         string           `json:"carrierCode" bson:"carrierCode,omitempty"`
-	ServiceCode         string           `json:"serviceCode" bson:"serviceCode,omitempty"`
-	PackageCode         string           `json:"packageCode" bson:"packageCode,omitempty"`
-	Confirmation        string           `json:"confirmation" bson:"confirmation,omitempty"`
-	WarehouseID         int              `json:"warehouseId" bson:"warehouseId,omitempty"`
-	Voided              bool             `json:"voided" bson:"voided,omitempty"`
-	VoidDate            string           `json:"voidDate" bson:"voidDate,omitempty"`
-	MarketplaceNotified bool             `json:"marketplaceNotified" bson:"marketplaceNotified,omitempty"`
-	NotifyErrorMessage  interface{}      `json:"notifyErrorMessage"  bson:"notifyErrorMessage,omitempty"`
-	ShipTo              ShipTo           `json:"shipTo" bson:"shipTo,omitempty"`
-	Weight              Weight           `json:"weight" bson:"weight,omitempty"`
-	Dimensions          interface{}      `json:"dimensions" bson:"dimensions,omitempty"`
-	InsuranceOptions    InsuranceOptions `json:"insuranceOptions" bson:"insuranceOptions,omitempty"`
-	AdvancedOptions     AdvancedOptions  `json:"advancedOptions" bson:"advanceOptions,omitempty"`
-	ShipmentItems       []ShipmentItems  `json:"shipmentItems" bson:"shipmentItems,omitempty"`
-	LabelData           interface{}      `json:"labelData" bson:"labelData,omitempty"`
-	FormData            interface{}      `json:"formData" bson:"formData,omitempty"`
+	ShipmentID          int              `json:"shipmentId,omitempty" bson:"shipmentId,omitempty"`
+	OrderID             int              `json:"orderId,omitempty" bson:"orderId,omitempty"`
+	OrderKey            string           `json:"orderKey,omitempty"  bson:"orderKey,omitempty"`
+	UserID              string           `json:"userId,omitempty"  bson:"userId,omitempty"`
+	OrderNumber         string           `json:"orderNumber,omitempty" bson:"orderNumber,omitempty"`
+	CreateDate          string           `json:"createDate,omitempty" bson:"createDate,omitempty"`
+	ShipDate            string           `json:"shipDate,omitempty" bson:"shipDate,omitempty"`
+	ShipmentCost        float64          `json:"shipmentCost,omitempty"  bson:"shipmentCost,omitempty"`
+	InsuranceCost       int              `json:"insuranceCost,omitempty" bson:"insuranceCost,omitempty"`
+	TrackingNumber      string           `json:"trackingNumber,omitempty" bson:"trackingNumber,omitempty"`
+	IsReturnLabel       bool             `json:"isReturnLabel,omitempty" bson:"isReturnLabel,omitempty"`
+	BatchNumber         string           `json:"batchNumber,omitempty" bson:"batchNumber,omitempty"`
+	CarrierCode         string           `json:"carrierCode,omitempty" bson:"carrierCode,omitempty"`
+	ServiceCode         string           `json:"serviceCode,omitempty" bson:"serviceCode,omitempty"`
+	PackageCode         string           `json:"packageCode,omitempty" bson:"packageCode,omitempty"`
+	Confirmation        string           `json:"confirmation,omitempty" bson:"confirmation,omitempty"`
+	WarehouseID         int              `json:"warehouseId,omitempty" bson:"warehouseId,omitempty"`
+	Voided              bool             `json:"voided,omitempty" bson:"voided,omitempty"`
+	VoidDate            string           `json:"voidDate,omitempty" bson:"voidDate,omitempty"`
+	MarketplaceNotified bool             `json:"marketplaceNotified,omitempty" bson:"marketplaceNotified,omitempty"`
+	NotifyErrorMessage  interface{}      `json:"notifyErrorMessage,omitempty"  bson:"notifyErrorMessage,omitempty"`
+	ShipTo              ShipTo           `json:"shipTo,omitempty" bson:"shipTo,omitempty"`
+	Weight              Weight           `json:"weight,omitempty" bson:"weight,omitempty"`
+	Dimensions          interface{}      `json:"dimensions,omitempty" bson:"dimensions,omitempty"`
+	InsuranceOptions    InsuranceOptions `json:"insuranceOptions,omitempty" bson:"insuranceOptions,omitempty"`
+	AdvancedOptions     AdvancedOptions  `json:"advancedOptions,omitempty" bson:"advanceOptions,omitempty"`
+	ShipmentItems       []ShipmentItems  `json:"shipmentItems,omitempty" bson:"shipmentItems,omitempty"`
+	LabelData           interface{}      `json:"labelData,omitempty" bson:"labelData,omitempty"`
+	FormData            interface{}      `json:"formData,omitempty" bson:"formData,omitempty"`
 }
 type ShipTo struct {
 	Name        string `json:"name" bson:"name,omitempty"`
