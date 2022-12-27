@@ -161,7 +161,7 @@ type ShipTo struct {
 	City        string `json:"city" bson:"city,omitempty"`
 	State       string `json:"state" bson:"state,omitempty"`
 	PostalCode  string `json:"postalCode" bson:"postalCode,omitempty"`
-	Country     string `json:"country" bson:"quantity,omitempty"`
+	Country     string `json:"country" bson:"country,omitempty"`
 	Phone       string `json:"phone" bson:"phone,omitempty"`
 	Residential bool   `json:"residential" bson:"residential,omitempty"`
 }
