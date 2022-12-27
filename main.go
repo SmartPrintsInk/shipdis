@@ -143,7 +143,6 @@ func GetOrders(params url.Values) (orders []ShipStationOrder, err error) {
 
 func GetShipments(params url.Values) (shipments []Shipment, err error) {
 	setup()
-	//Dis
 	var list ShipmentList
 	reqPayload := RequestPayload{
 		URL:    ordersEndpoint,
