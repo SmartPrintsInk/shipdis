@@ -130,7 +130,7 @@ type Shipment struct {
 	CreateDate          string           `json:"createDate,omitempty" bson:"createDate,omitempty"`
 	ShipDate            string           `json:"shipDate,omitempty" bson:"shipDate,omitempty"`
 	ShipmentCost        float64          `json:"shipmentCost,omitempty"  bson:"shipmentCost,omitempty"`
-	InsuranceCost       int              `json:"insuranceCost,omitempty" bson:"insuranceCost,omitempty"`
+	InsuranceCost       float64          `json:"insuranceCost,omitempty" bson:"insuranceCost,omitempty"`
 	TrackingNumber      string           `json:"trackingNumber,omitempty" bson:"trackingNumber,omitempty"`
 	IsReturnLabel       bool             `json:"isReturnLabel,omitempty" bson:"isReturnLabel,omitempty"`
 	BatchNumber         string           `json:"batchNumber,omitempty" bson:"batchNumber,omitempty"`
