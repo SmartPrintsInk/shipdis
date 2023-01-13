@@ -61,7 +61,9 @@ type ShipStationItem struct {
 }
 
 type AdvancedOptions struct {
-	Source string `json:"source,omitempty" bson:"source,omitempty"`
+	Source      string `json:"source,omitempty" bson:"source,omitempty"`
+	StoreId     int    `json:"storeId,omitempty" bson:"storeId,omitempty"`
+	Warehouseid int    `json:"warehouseId,omitempty" bson:"warehouseId,omitempty"`
 }
 
 type ShipStationOrder struct {
