@@ -166,9 +166,9 @@ type ShipTo struct {
 	Residential bool   `json:"residential" bson:"residential,omitempty"`
 }
 type InsuranceOptions struct {
-	Provider       string `json:"provider" bson:"provider,omitempty"`
-	InsureShipment bool   `json:"insureShipment" bson:"insureShipment,omitempty"`
-	InsuredValue   int    `json:"insuredValue" bson:"insureValue,omitempty"`
+	Provider       string  `json:"provider" bson:"provider,omitempty"`
+	InsureShipment bool    `json:"insureShipment" bson:"insureShipment,omitempty"`
+	InsuredValue   float64 `json:"insuredValue" bson:"insureValue,omitempty"`
 }
 type ShipmentItems struct {
 	OrderItemID       int    `json:"orderItemId" bson:"orderItemId,omitempty"`
