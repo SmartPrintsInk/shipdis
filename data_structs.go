@@ -70,6 +70,7 @@ type ShipStationOrder struct {
 	OrderId         int64             `json:"orderId,omitempty" bson:"orderId,omitempty"`
 	OrderNumber     string            `json:"orderNumber,omitempty" bson:"orderNumber,omitempty"`
 	OrderDate       string            `json:"orderDate,omitempty" bson:"orderDate,omitempty"`
+	CreateDate      string            `json:"createDate,omitempty" bson:"createDate,omitempty"`
 	PaymentDate     string            `json:"paymentDate,omitempty" bson:"paymentDate,omitempty"`
 	ShipByDate      string            `json:"shipByDate,omitempty" bson:"shipByDate,omitempty"`
 	OrderStatus     string            `json:"orderStatus,omitempty" bson:"orderStatus,omitempty"`
@@ -131,6 +132,8 @@ type Shipment struct {
 	OrderNumber         string           `json:"orderNumber,omitempty" bson:"orderNumber,omitempty"`
 	CreateDate          string           `json:"createDate,omitempty" bson:"createDate,omitempty"`
 	ShipDate            string           `json:"shipDate,omitempty" bson:"shipDate,omitempty"`
+	ModifyDate          string           `json:"modifyDate,omitempty" bson:"modifyDate,omitempty"`
+	PaymentDate         string           `json:"paymentDate,omitempty" bson:"paymentDate,omitempty"`
 	ShipmentCost        float64          `json:"shipmentCost,omitempty"  bson:"shipmentCost,omitempty"`
 	InsuranceCost       float64          `json:"insuranceCost,omitempty" bson:"insuranceCost,omitempty"`
 	TrackingNumber      string           `json:"trackingNumber,omitempty" bson:"trackingNumber,omitempty"`
