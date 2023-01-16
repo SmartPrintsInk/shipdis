@@ -65,7 +65,7 @@ func MasrAs(shipstationMarkedItem ShipStationMarkAsShipped) (response Shipstatio
 	message := fmt.Sprintf("at Marshaling for marked as shipped orderId %s\n", id)
 	check(err, message)
 	requestPayload := RequestPayload{
-		URL:    holdEndpoint,
+		URL:    markAsShipped,
 		Method: http.MethodPost,
 		Headers: http.Header{
 			"Host":          {"ssapi.shipstation.com"},
