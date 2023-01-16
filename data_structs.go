@@ -61,9 +61,12 @@ type ShipStationItem struct {
 }
 
 type AdvancedOptions struct {
-	Source      string `json:"source,omitempty" bson:"source,omitempty"`
-	StoreId     int    `json:"storeId,omitempty" bson:"storeId,omitempty"`
-	Warehouseid int    `json:"warehouseId,omitempty" bson:"warehouseId,omitempty"`
+	Source       string `json:"source,omitempty" bson:"source,omitempty"`
+	StoreId      int    `json:"storeId,omitempty" bson:"storeId,omitempty"`
+	Warehouseid  int    `json:"warehouseId,omitempty" bson:"warehouseId,omitempty"`
+	CustomField1 string `json:"customField1,omitempty" bson:"customField1,omitempty"`
+	CustomField2 string `json:"customField2,omitempty" bson:"customField2,omitempty"`
+	CustomField3 string `json:"customField3,omitempty" bson:"customField3,omitempty"`
 }
 
 type ShipStationOrder struct {
