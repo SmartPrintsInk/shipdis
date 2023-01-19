@@ -51,6 +51,7 @@ type ShipStationItem struct {
 	Weight            *Weight  `json:"weight,omitempty" bson:"weight,omitempty"`
 	Quantity          int      `json:"quantity,omitempty" bson:"quantity,omitempty"`
 	UnitPrice         float64  `json:"unitPrice,omitempty" bson:"unitPrice,omitempty"`
+	TaxAmount         float64  `json:"taxAmount,omitempty" bson:"taxAmount,omitempty"`
 	ShippingAmount    float64  `json:"shippingAmount,omitempty" bson:"shippingAmout,omitempty"`
 	WarehouseLocation string   `json:"warehouseLocation,omitempty" bson:"warehouseLocation,omitempty"`
 	Options           []Option `json:"options,omitempty" bson:"options,omitempty"`
