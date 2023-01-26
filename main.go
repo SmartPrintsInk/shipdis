@@ -80,7 +80,7 @@ func MasrAs(shipstationMarkedItem ShipStationMarkAsShipped) (response Shipstatio
 	message = fmt.Sprintf("at Marked as shipped for orderId %s\n", id)
 	check(err, message)
 	err = json.Unmarshal(responseBody, &response)
-	fmt.Printf("Holding Reponse %+v\n", prettyfie.Pretty(response))
+	fmt.Printf("Mark as Shipped Reponse %+v\n", prettyfie.Pretty(response))
 	return
 }
 
