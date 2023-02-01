@@ -71,25 +71,26 @@ type AdvancedOptions struct {
 }
 
 type ShipStationOrder struct {
-	OrderId         int64             `json:"orderId,omitempty" bson:"orderId,omitempty"`
-	OrderNumber     string            `json:"orderNumber,omitempty" bson:"orderNumber,omitempty"`
-	OrderDate       string            `json:"orderDate,omitempty" bson:"orderDate,omitempty"`
-	CreateDate      string            `json:"createDate,omitempty" bson:"createDate,omitempty"`
-	PaymentDate     string            `json:"paymentDate,omitempty" bson:"paymentDate,omitempty"`
-	ShipByDate      string            `json:"shipByDate,omitempty" bson:"shipByDate,omitempty"`
-	OrderStatus     string            `json:"orderStatus,omitempty" bson:"orderStatus,omitempty"`
-	CustomerEmail   string            `json:"customerEmail,omitempty" bson:"customerEmail,omitempty"`
-	BillTo          *Address          `json:"billTo,omitempty" bson:"billTo,omitempty"`
-	ShipTo          *Address          `json:"shipTo,omitempty" bson:"shipTo,omitempty"`
-	Items           []ShipStationItem `json:"items,omitempty" bson:"items,omitempty"`
-	AmountPaid      float64           `json:"amountPaid,omitempty" bson:"amountPaid,omitempty"`
-	TaxAmount       float64           `json:"taxAmount,omitempty" bson:"taxAmount,omitempty"`
-	ShippingAmount  float64           `json:"shippingAmount,omitempty" bson:"shippingAmount,omitempty"`
-	OrderTotal      float64           `json:"orderTotal,omitempty" bson:"orderTotal,omitempty"`
-	CustomerNotes   string            `json:"cutomerNotes,omitempty" bson:"customerNotes,omitempty"`
-	InternalNotes   string            `json:"internalNotes,omitempty" bson:"internalNotes,omitempty"`
-	AdvancedOptions AdvancedOptions   `json:"advancedOptions,omitempty" bson:"advanceOptions,omitempty"`
-	TagIds          []int             `json:"tagIds,omitempty" bson:"tagsIds,omitempty"`
+	OrderId          int64             `json:"orderId,omitempty" bson:"orderId,omitempty"`
+	OrderNumber      string            `json:"orderNumber,omitempty" bson:"orderNumber,omitempty"`
+	OrderDate        string            `json:"orderDate,omitempty" bson:"orderDate,omitempty"`
+	CreateDate       string            `json:"createDate,omitempty" bson:"createDate,omitempty"`
+	PaymentDate      string            `json:"paymentDate,omitempty" bson:"paymentDate,omitempty"`
+	ShipByDate       string            `json:"shipByDate,omitempty" bson:"shipByDate,omitempty"`
+	OrderStatus      string            `json:"orderStatus,omitempty" bson:"orderStatus,omitempty"`
+	CustomerUsername string            `json:"customerUsername,omitempty" bson:"customerUsername,omitempty"`
+	CustomerEmail    string            `json:"customerEmail,omitempty" bson:"customerEmail,omitempty"`
+	BillTo           *Address          `json:"billTo,omitempty" bson:"billTo,omitempty"`
+	ShipTo           *Address          `json:"shipTo,omitempty" bson:"shipTo,omitempty"`
+	Items            []ShipStationItem `json:"items,omitempty" bson:"items,omitempty"`
+	AmountPaid       float64           `json:"amountPaid,omitempty" bson:"amountPaid,omitempty"`
+	TaxAmount        float64           `json:"taxAmount,omitempty" bson:"taxAmount,omitempty"`
+	ShippingAmount   float64           `json:"shippingAmount,omitempty" bson:"shippingAmount,omitempty"`
+	OrderTotal       float64           `json:"orderTotal,omitempty" bson:"orderTotal,omitempty"`
+	CustomerNotes    string            `json:"cutomerNotes,omitempty" bson:"customerNotes,omitempty"`
+	InternalNotes    string            `json:"internalNotes,omitempty" bson:"internalNotes,omitempty"`
+	AdvancedOptions  AdvancedOptions   `json:"advancedOptions,omitempty" bson:"advanceOptions,omitempty"`
+	TagIds           []int             `json:"tagIds,omitempty" bson:"tagsIds,omitempty"`
 }
 
 type ShipStationOrderList struct {
