@@ -3,19 +3,20 @@ package shipdis
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/SmartPrintsInk/prettyfie"
 	"log"
 	"net/http"
 	"net/url"
 	"strconv"
+
+	"github.com/SmartPrintsInk/prettyfie"
+	"github.com/SmartPrintsInk/requestdis"
 )
 
 func CreateOrder(order ShipStationOrder) (response ShipStationOrder, err error) {
-	setup()
 	jsonData, err := json.Marshal(order)
 	message := fmt.Sprintf("at Marshaling Orders\n%+v\n", order)
 	check(err, message)
-	requestPayload := RequestPayload{
+	requestPayload := requestdis.RequestPayload{
 		URL:    createEndpoint,
 		Method: http.MethodPost,
 		Headers: http.Header{
@@ -29,17 +30,16 @@ func CreateOrder(order ShipStationOrder) (response ShipStationOrder, err error) 
 	}
 	responseBody, err := requestPayload.MakeHttpRequest()
 	err = json.Unmarshal(responseBody, &response)
+	fmt.Printf("Create order reponse %+v\n", prettyfie.Pretty(response))
 	message = fmt.Sprintf("at Creating Orders\n%+v\n", order)
 	check(err, message)
-	fmt.Printf("Delete Reponse %+v\n", prettyfie.Pretty(response))
 	return
 }
 
 func DeleteOrder(orderId int64) (response DeleteResponse, err error) {
-	setup()
 	id := strconv.FormatInt(orderId, 10)
 	uri := fmt.Sprintf("%s/%s", ordersEndpoint, id)
-	requestPayload := RequestPayload{
+	requestPayload := requestdis.RequestPayload{
 		URL:    uri,
 		Method: http.MethodDelete,
 		Headers: http.Header{
@@ -54,17 +54,16 @@ func DeleteOrder(orderId int64) (response DeleteResponse, err error) {
 	responseBody, err := requestPayload.MakeHttpRequest()
 	check(err, "at Delete orderId "+id+"\n")
 	json.Unmarshal(responseBody, &response)
-	fmt.Printf("Delete Reponse %+v\n", prettyfie.Pretty(response))
+	fmt.Printf("Delete order reponse %+v\n", prettyfie.Pretty(response))
 	return
 }
 
 func MasrAs(shipstationMarkedItem ShipStationMarkAsShipped) (response ShipstationMarkShippedResponse, err error) {
-	setup()
 	jsonData, err := json.Marshal(shipstationMarkedItem)
 	id := strconv.FormatInt(shipstationMarkedItem.OrderID, 10)
 	message := fmt.Sprintf("at Marshaling for marked as shipped orderId %s\n", id)
 	check(err, message)
-	requestPayload := RequestPayload{
+	requestPayload := requestdis.RequestPayload{
 		URL:    markAsShipped,
 		Method: http.MethodPost,
 		Headers: http.Header{
@@ -85,7 +84,6 @@ func MasrAs(shipstationMarkedItem ShipStationMarkAsShipped) (response Shipstatio
 }
 
 func HoldDis(orderId int64, until string) (response ShipstationHoldResponse, err error) {
-	setup()
 	shipstationHoldItem := ShipstationHoldItem{
 		OrderID:       orderId,
 		HoldUntilDate: until,
@@ -94,7 +92,7 @@ func HoldDis(orderId int64, until string) (response ShipstationHoldResponse, err
 	jsonData, err := json.Marshal(shipstationHoldItem)
 	message := fmt.Sprintf("at marshaling holding orderId %s\n", id)
 	check(err, message)
-	requestPayload := RequestPayload{
+	requestPayload := requestdis.RequestPayload{
 		URL:    holdEndpoint,
 		Method: http.MethodPost,
 		Headers: http.Header{
@@ -114,9 +112,8 @@ func HoldDis(orderId int64, until string) (response ShipstationHoldResponse, err
 }
 
 func GetOrders(params url.Values) (orders []ShipStationOrder, err error) {
-	setup()
 	var orderList ShipStationOrderList
-	reqPayload := RequestPayload{
+	reqPayload := requestdis.RequestPayload{
 		URL:    ordersEndpoint,
 		Method: http.MethodGet,
 		Headers: http.Header{
@@ -142,9 +139,8 @@ func GetOrders(params url.Values) (orders []ShipStationOrder, err error) {
 }
 
 func GetShipments(params url.Values) (shipments []Shipment, err error) {
-	setup()
 	var list ShipmentList
-	reqPayload := RequestPayload{
+	reqPayload := requestdis.RequestPayload{
 		URL:    shipmentEndpoint,
 		Method: http.MethodGet,
 		Headers: http.Header{

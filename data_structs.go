@@ -1,18 +1,5 @@
 package shipdis
 
-import (
-	"net/http"
-	"net/url"
-)
-
-type RequestPayload struct {
-	URL         string
-	Method      string // Use http method constants
-	Headers     http.Header
-	QueryParams url.Values
-	Payload     []byte
-}
-
 type DeleteResponse struct {
 	Success bool   `json:"success" bson:"success,omitempty"`
 	Message string `json:"message" bson:"message,omitempty"`
@@ -73,22 +60,32 @@ type AdvancedOptions struct {
 type ShipStationOrder struct {
 	OrderId          int64             `json:"orderId,omitempty" bson:"orderId,omitempty"`
 	OrderNumber      string            `json:"orderNumber,omitempty" bson:"orderNumber,omitempty"`
+	OrderKey         string            `json:"orderKey,omitempty" bson:"orderKey,omitempty"`
 	OrderDate        string            `json:"orderDate,omitempty" bson:"orderDate,omitempty"`
 	CreateDate       string            `json:"createDate,omitempty" bson:"createDate,omitempty"`
+	ModifyDate       string            `json:"modifyDate,omitempty" bson:"modifyDate,omitempty"`
 	PaymentDate      string            `json:"paymentDate,omitempty" bson:"paymentDate,omitempty"`
 	ShipByDate       string            `json:"shipByDate,omitempty" bson:"shipByDate,omitempty"`
 	OrderStatus      string            `json:"orderStatus,omitempty" bson:"orderStatus,omitempty"`
+	CustomerId       string            `json:"customerId,omitempty" bson:"customerId,omitempty"`
 	CustomerUsername string            `json:"customerUsername,omitempty" bson:"customerUsername,omitempty"`
 	CustomerEmail    string            `json:"customerEmail,omitempty" bson:"customerEmail,omitempty"`
 	BillTo           *Address          `json:"billTo,omitempty" bson:"billTo,omitempty"`
 	ShipTo           *Address          `json:"shipTo,omitempty" bson:"shipTo,omitempty"`
 	Items            []ShipStationItem `json:"items,omitempty" bson:"items,omitempty"`
+	OrderTotal       float64           `json:"orderTotal,omitempty" bson:"orderTotal,omitempty"`
 	AmountPaid       float64           `json:"amountPaid,omitempty" bson:"amountPaid,omitempty"`
 	TaxAmount        float64           `json:"taxAmount,omitempty" bson:"taxAmount,omitempty"`
 	ShippingAmount   float64           `json:"shippingAmount,omitempty" bson:"shippingAmount,omitempty"`
-	OrderTotal       float64           `json:"orderTotal,omitempty" bson:"orderTotal,omitempty"`
 	CustomerNotes    string            `json:"cutomerNotes,omitempty" bson:"customerNotes,omitempty"`
 	InternalNotes    string            `json:"internalNotes,omitempty" bson:"internalNotes,omitempty"`
+	Gift             string            `json:"gift,omitempty" bson:"gift,omitempty"`
+	GiftMessage      string            `json:"giftMessage,omitempty" bson:"giftMessage,omitempty"`
+	PaymentMethod    string            `json:"paymentMethod,omitempty" bson:"paymentMethod,omitempty"`
+	CarrierCode      string            `json:"carrierCode,omitempty" bson:"carrierCode,omitempty"`
+	ServiceCode      string            `json:"ServiceCode,omitempty" bson:"ServiceCode,omitempty"`
+	PackageCode      string            `json:"packageCode,omitempty" bson:"packageCode,omitempty"`
+	ShipDate         string            `json:"shipDate,omitempty" bson:"shipDate,omitempty"`
 	AdvancedOptions  AdvancedOptions   `json:"advancedOptions,omitempty" bson:"advanceOptions,omitempty"`
 	TagIds           []int             `json:"tagIds,omitempty" bson:"tagsIds,omitempty"`
 }
