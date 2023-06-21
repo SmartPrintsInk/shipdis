@@ -79,7 +79,7 @@ type ShipStationOrder struct {
 	ShippingAmount   float64           `json:"shippingAmount,omitempty" bson:"shippingAmount,omitempty"`
 	CustomerNotes    string            `json:"cutomerNotes,omitempty" bson:"customerNotes,omitempty"`
 	InternalNotes    string            `json:"internalNotes,omitempty" bson:"internalNotes,omitempty"`
-	Gift             bool            `json:"gift,omitempty" bson:"gift,omitempty"`
+	Gift             bool              `json:"gift,omitempty" bson:"gift,omitempty"`
 	GiftMessage      string            `json:"giftMessage,omitempty" bson:"giftMessage,omitempty"`
 	PaymentMethod    string            `json:"paymentMethod,omitempty" bson:"paymentMethod,omitempty"`
 	CarrierCode      string            `json:"carrierCode,omitempty" bson:"carrierCode,omitempty"`
