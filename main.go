@@ -164,3 +164,30 @@ func GetShipments(params url.Values) (shipments []Shipment, err error) {
 	}
 	return
 }
+
+func GetFulfillments(params url.Values) (fulfillments []Fulfillment, err error) {
+	var list FulfillmentList
+	reqPayload := requestdis.RequestPayload{
+		URL:    fulfillmentEndpoint,
+		Method: http.MethodGet,
+		Headers: http.Header{
+			"Host":          {"ssapi.shipstation.com"},
+			"Authorization": {authorization},
+			"Content-Type":  {"application/json"},
+			"Accept":        {"application/json"},
+		},
+		QueryParams: params,
+		Payload:     nil,
+	}
+	resp, err := reqPayload.MakeHttpRequest()
+	check(err, "Get ShipStation Order list")
+	err = json.Unmarshal(resp, &list)
+	log.Printf("ShipStation Response:\n%s\n", prettyfie.Pretty(list))
+	fulfillments = list.Fulfillments
+	if list.Page < list.Pages {
+		params.Set("page", fmt.Sprintf("%d", list.Page+1))
+		newFulfillments, _ := GetFulfillments(params)
+		fulfillments = append(fulfillments, newFulfillments...)
+	}
+	return
+}
