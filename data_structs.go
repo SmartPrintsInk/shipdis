@@ -192,6 +192,51 @@ type ShipmentItems struct {
 	FulfillmentSku    string `json:"fulfillmentSku" bson:"fulfillmentSku,omitempty"`
 }
 
+// Fulfillments
+type FulfillmentList struct {
+	Fulfillments []Fulfillment	 `json:"fulfillments"  bson:"fulfillments,omitempty"`
+	Total     int       		 `json:"total"  bson:"total,omitempty"`
+	Page      int       		 `json:"page"  bson:"page,omitempty"`
+	Pages     int       		 `json:"pages"  bson:"pages,omitempty"`
+}
+
+type Fulfillment struct {
+	FulfillmentID 		int		`json:"fulfillmentId,omitempty"  bson:"fulfillmentId,omitempty"`
+    	OrderID 		int		`json:"orderId,omitempty"  bson:"orderId,omitempty"`	
+    	OrderNumber 		string		`json:"orderNumber,omitempty"  bson:"orderNumber,omitempty"`
+    	UserID 			string		`json:"userId,omitempty"  bson:"userId,omitempty"`
+    	CustomerEmail		string		`json:"customerEmail,omitempty"  bson:"customerEmail,omitempty"`
+	TrackingNumber		string		`json:"trackingNumber,omitempty"  bson:"trackingNumber,omitempty"`
+ 	CreateDate		string		`json:"createDate,omitempty"  bson:"createDate,omitempty"`
+    	ShipDate		string		`json:"shipDate,omitempty"  bson:"shipDate,omitempty"`
+    	VoidDate		string		`json:"voidDate,omitempty"  bson:"voidDate,omitempty"`
+    	DeliveryDate		string		`json:"deliveryDate,omitempty"  bson:"deliveryDate,omitempty"`
+    	CarrierCode		string		`json:"carrierCode,omitempty"  bson:"carrierCode,omitempty"`
+    	FulfillmentProviderCode string		`json:"fulfillmentProviderCode,omitempty"  bson:"fulfillmentProviderCode,omitempty"`
+    	FulfillmentServiceCode  string		`json:"fulfillmentServiceCode,omitempty"  bson:"fulfillmentServiceCode,omitempty"`
+    	FulfillmentFee  	float64		`json:"fulfillmentFee,omitempty"  bson:"fulfillmentFee,omitempty"`
+    	VoidRequested 		bool		`json:"voidRequested,omitempty"  bson:"voidRequested,omitempty"`
+    	Voided			bool		`json:"voided,omitempty"  bson:"voided,omitempty"`
+    	MarketplaceNotified	bool		`json:"marketplaceNotified,omitempty"  bson:"marketplaceNotified,omitempty"`
+    	NotifyErrorMessage	string		`json:"notifyErrorMessage,omitempty"  bson:"notifyErrorMessage,omitempty"`
+    	ShipTo			ShipToFul	`json:"shipTo,omitempty"  bson:"shipTo,omitempty"`
+}
+
+type ShipToFul struct {
+	Name        	string 	`json:"name" bson:"name,omitempty"`
+	Company     	string 	`json:"company" bson:"company,omitempty"`
+	Street1     	string 	`json:"street1" bson:"street1,omitempty"`
+	Street2     	string 	`json:"street2" bson:"street2,omitempty"`
+	Street3    		string 	`json:"street3" bson:"street3,omitempty"`
+	City        	string 	`json:"city" bson:"city,omitempty"`
+	State       	string 	`json:"state" bson:"state,omitempty"`
+	PostalCode  	string 	`json:"postalCode" bson:"postalCode,omitempty"`
+	Country     	string 	`json:"country" bson:"country,omitempty"`
+	Phone       	string 	`json:"phone" bson:"phone,omitempty"`
+	Residential 	bool   	`json:"residential" bson:"residential,omitempty"`
+	AddressVerified bool	`json:"addressVerified" bson:"addressVerified,omitempty"`
+}
+
 type ShipstationHoldItem struct {
 	OrderID       int64  `json:"orderId" bson:"orderId,omitempty"`
 	HoldUntilDate string `json:"holdUntilDate" bson:"holdUntilDate,omitempty"`
